@@ -10,6 +10,7 @@ buildscript {
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
 		classpath("gradle.plugin.com.palantir.gradle.docker:gradle-docker:${gradleDockerVersion}")
+		classpath("org.jmailen.gradle:kotlinter-gradle:${kotlinLinterVersion}")
 	}
 }
 
@@ -19,6 +20,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.palantir.docker'
+apply plugin: 'org.jmailen.kotlinter'
 
 group = 'study'
 version = '0.0.1-SNAPSHOT'
@@ -40,6 +42,9 @@ compileTestKotlin {
 
 repositories {
 	mavenCentral()
+	maven {
+		url  "https://dl.bintray.com/cdimascio/maven/"
+	}
 }
 
 
@@ -62,4 +67,11 @@ task unpack(type: Copy) {
 	dependsOn bootJar
 	from(zipTree(tasks.bootJar.outputs.files.singleFile))
 	into("target/")
+}
+
+kotlinter {
+	ignoreFailures = false
+	indentSize = 4
+	continuationIndentSize = 4
+	reporters = ['checkstyle', 'plain']
 }
