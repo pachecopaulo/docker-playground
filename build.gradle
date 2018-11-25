@@ -1,8 +1,4 @@
 buildscript {
-	ext {
-		kotlinVersion = '1.2.70'
-		springBootVersion = '2.1.0.RELEASE'
-	}
 	repositories {
 		mavenCentral()
 		maven {
@@ -13,7 +9,7 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
-		classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0')
+		classpath("gradle.plugin.com.palantir.gradle.docker:gradle-docker:${gradleDockerVersion}")
 	}
 }
 
@@ -27,6 +23,8 @@ apply plugin: 'com.palantir.docker'
 group = 'study'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 compileKotlin {
 	kotlinOptions {
 		freeCompilerArgs = ["-Xjsr305=strict"]
