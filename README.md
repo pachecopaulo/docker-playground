@@ -9,4 +9,4 @@ Build docker images: ```./gradlew build docker```
 
 Show linter errors: ```./gradlew lintKotlin```
 
-Fix linter errors: ```/gradlew formatKotlin```
+Fix linter errors: ```./gradlew formatKotlin```
