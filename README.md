@@ -13,6 +13,6 @@ As part of the project configuration some Gradle tasks have been created
 | Fix linter errors    | ./gradlew formatKotlin  |
 
 ## Running the Docker image
-After building the docker image using the gradle task you can run the container using ```docker run -p 8080:8080 -t docker run -p 9080:8080 -t study/docker-app```. 
+After building the docker image using the gradle task you can run the container using ```docker run -p 8080:8080 -t study/docker-app```. 
 
 For now the image will be tagged as **latest**, so you can ommit the tag when running the docker image.
