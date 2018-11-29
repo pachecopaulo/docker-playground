@@ -1,4 +1,4 @@
-package com.udemy.docker.dockerapp
+package com.udemy.docker.app.repository
 
 import org.springframework.data.redis.core.HashOperations
 import org.springframework.data.redis.core.RedisTemplate
