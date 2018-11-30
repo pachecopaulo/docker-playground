@@ -1,9 +1,11 @@
-package com.udemy.docker.dockerapp
+package com.udemy.docker.app
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Configuration
 
 @SpringBootApplication
+@Configuration
 class DockerAppApplication
 
 fun main(args: Array<String>) {
