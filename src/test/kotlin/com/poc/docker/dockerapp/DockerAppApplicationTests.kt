@@ -1,4 +1,4 @@
-package com.udemy.docker.dockerapp
+package com.poc.docker.dockerapp
 
 import org.junit.Test
 import org.junit.runner.RunWith
