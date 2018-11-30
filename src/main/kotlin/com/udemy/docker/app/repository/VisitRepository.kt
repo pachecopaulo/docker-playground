@@ -1,27 +1,21 @@
 package com.udemy.docker.app.repository
 
-import org.springframework.data.redis.core.HashOperations
-import org.springframework.data.redis.core.RedisTemplate
+import org.springframework.data.redis.core.StringRedisTemplate
 import org.springframework.stereotype.Repository
-import javax.annotation.PostConstruct
 
 @Repository
-class VisitRepository {
+class VisitRepository(private val stringRedisTemplate: StringRedisTemplate) {
 
-    private val redisTemplate = RedisTemplate<String, Object>()
-    private lateinit var hashOperations: HashOperations<String, String, Long>
-
-    @PostConstruct
-    fun init() {
-        hashOperations = redisTemplate.opsForHash()
-    }
-
-    fun updateCounter() {
-        val lastCount = hashOperations.get(VISIT_KEY, "counter") ?: 1
-        hashOperations.put(VISIT_KEY, "counter", lastCount)
+    fun updateVisits(): Long {
+        val visitCount = stringRedisTemplate.opsForValue().get(KEY)
+            ?.toLong()
+            ?.let { it + 1 }
+            ?: 1
+        stringRedisTemplate.opsForValue().set(KEY, visitCount.toString())
+        return visitCount
     }
 
     companion object {
-        const val VISIT_KEY = "Visit"
+        const val KEY = "VisitKey"
     }
 }

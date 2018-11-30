@@ -10,5 +10,6 @@ import org.springframework.web.bind.annotation.RestController
 class CounterController(private val visitRepository: VisitRepository) {
 
     @GetMapping("/counter")
-    fun updateCounter() = visitRepository.updateCounter()
+    fun updateCounter() =
+        "number of visits: ${visitRepository.updateVisits()}"
 }
