@@ -13,6 +13,11 @@ As part of the project configuration some Gradle tasks have been created
 | Fix linter errors    | ./gradlew formatKotlin  |
 
 ## Running the Docker image
-After building the docker image using the gradle task you can run the container using ```docker run -p 8080:8080 -t study/docker-app```. 
 
-For now the image will be tagged as **latest**, so you can ommit the tag when running the docker image.
+The application requires an instance of Redis up and running on port **6379** so you can start a redis docker container using ```docker run -p 6379:6379 redis```
+
+Next step is to build the docker image for the application using the gradle task ```./gradlew build docker```.
+
+Once the gradle task is done you can launch the application thru Docker using: ```docker run -p 8080:8080 -t study/docker-app``` 
+
+For now the application's image will be tagged as **latest**, so you can ommit the tag when running the docker image.
