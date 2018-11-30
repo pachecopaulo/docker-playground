@@ -1,4 +1,4 @@
-package com.udemy.docker.app.repository
+package com.poc.docker.app.repository
 
 import org.springframework.data.redis.core.StringRedisTemplate
 import org.springframework.stereotype.Repository

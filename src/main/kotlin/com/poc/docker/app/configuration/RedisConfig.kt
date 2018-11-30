@@ -1,4 +1,4 @@
-package com.udemy.docker.app.redis.configuration
+package com.poc.docker.app.configuration
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
