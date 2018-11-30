@@ -2,6 +2,13 @@
 
 This is a PoC project intended to work with Docker and Kubernets.
 
+### Stack
+   * Kotlin
+   * Spring Boot
+   * Redis
+   * Docker
+   * Gradle
+
 ### Gradle Tasks
 
 As part of the project configuration some Gradle tasks have been created
