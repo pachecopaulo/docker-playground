@@ -19,7 +19,7 @@ As part of the project configuration some Gradle tasks have been created
 | Show linter errors   | ./gradlew lintKotlin    |
 | Fix linter errors    | ./gradlew formatKotlin  |
 
-## Running the Docker image
+## Docker
 
 The application requires an instance of Redis up and running on port **6379** so you can start a redis docker container using ```docker run -p 6379:6379 redis```
 
