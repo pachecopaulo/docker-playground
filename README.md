@@ -11,7 +11,7 @@ This is a PoC project intended to work with Docker and Kubernets.
 
 ### Gradle Tasks
 
-Please note the ```./gradlew``` is a wrapper for the ```gradle``` command. If you're running on Windows you can use the gradlew.bat as a wrapper or the ```gradle``` command instead.
+Please note the ```./gradlew``` is a wrapper for the ```gradle``` command. If you're running on Windows you can use the ```gradlew.bat``` as a wrapper or the ```gradle``` command instead.
 
 
 As part of the project configuration some Gradle tasks have been created
