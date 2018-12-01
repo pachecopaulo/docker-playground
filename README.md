@@ -22,7 +22,7 @@ As part of the project configuration some Gradle tasks have been created
 | Show linter errors   | ./gradlew lintKotlin    |
 | Fix linter errors    | ./gradlew formatKotlin  |
 
-## docker-compose
+## Docker Compose
 
 The docker-compose has been defined to configure the multi docker images available in this project which are the **Redis** database and the application itself making possible the communication between containers.
 
