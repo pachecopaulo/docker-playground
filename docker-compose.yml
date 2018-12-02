@@ -10,6 +10,7 @@ services:
     container_name: docker-app-container
     depends_on:
       - redis-db
+      - nginx
     build:
       context: .
       dockerfile: Dockerfile
