@@ -9,9 +9,6 @@ services:
 install:
   - ./gradlew build -x check --scan
 
-before_install:
-  - docker build -t pachecopaulo/docker-playground  .
-
 jobs:
   include:
   - stage: all tests
