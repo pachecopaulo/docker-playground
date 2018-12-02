@@ -31,6 +31,12 @@ The docker-compose has been defined to configure the multi docker images availab
 
 **1)** ```./gradlew build``` - It's responsible to create the jar file that will be picked up by the docker build
 
-**2)** ```docker-compose up --build``` - It's responsible to build the docker images and create a network for the containers
+**2)** ```docker-compose up --build``` - The docker-compose will be responsible to create 3 containers to be able to run this application
+   
+  * Redis database to be able to store the number of visits
+   
+  * The NGINX for reverse proxy
+   
+  * The application itself
 
-**3)** Once the app is up and running the application can be acessible via: http://localhost:8081/api/visits/counter where the port 8081 is configured to forward incoming traffic to port 8080 in the docker container which is the default Tomcat port used by Spring Boot
+**3)** Once the app is up and running the application can be acessible via: http://localhost/count where the NGINX will forward the incoming requests to the service name under the Rest endpoint to store the number visits.
