@@ -15,7 +15,7 @@ jobs:
   include:
   - stage: build
     #if: branch = master
-    script: ./gradle build
+    script: ./gradlew build
   - stage: image
     script: docker build .
 
