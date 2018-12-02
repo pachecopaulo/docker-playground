@@ -6,6 +6,7 @@ This is a PoC project intended to work with Docker and Kubernets.
    * Kotlin
    * Spring Boot
    * Redis DB
+   * NGINX
    * Docker
    * Gradle
 
