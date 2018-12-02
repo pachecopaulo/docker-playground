@@ -11,5 +11,5 @@ class CounterController(private val visitRepository: VisitRepository) {
 
     @GetMapping("/counter")
     fun updateCounter() =
-        "number of visits: ${visitRepository.updateVisits()}"
+        "Number of visits: ${visitRepository.updateVisits()}"
 }
