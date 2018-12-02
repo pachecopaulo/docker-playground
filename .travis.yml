@@ -13,9 +13,12 @@ before_cache:
 
 jobs:
   include:
+  - stage: lint
+    script: ./gradlew lintKotlin
+  - stage: test
+    script: ./gradlew test
   - stage: build
-    if: branch = master
-    script: docker build .
+    script: ./gradlew build
 
 cache:
   directories:
