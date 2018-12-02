@@ -6,12 +6,15 @@ sudo: required
 services:
   - docker
 
-install:
-  - ./gradlew build -x check --scan
+before_install:
+  - docker run --name redis-integration-test-db -p 6379:6379 -d redis
+
+stages:
+  - tests
 
 jobs:
   include:
-  - stage: all tests
+  - stage: tests
     script: ./gradlew build test
 
 before_cache:
