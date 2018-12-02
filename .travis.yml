@@ -3,19 +3,9 @@ jdk:
   - oraclejdk8
 
 sudo: required
-services:
-  - docker
 
 before_install:
   - docker run --name redis-integration-test-db -p 6379:6379 -d redis
-
-stages:
-  - tests
-
-jobs:
-  include:
-  - stage: tests
-    script: ./gradlew clean test
 
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
