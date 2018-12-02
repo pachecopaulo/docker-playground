@@ -58,7 +58,8 @@ dependencies {
     compile("org.apache.commons:commons-pool2")
     compile("org.springframework.boot:spring-boot-starter-data-redis:${springDataRedisVersion}")
 
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation ("com.nhaarman.mockitokotlin2:mockito-kotlin:${kotlinMockitoVersion}")
 }
 
 docker {
