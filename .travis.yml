@@ -4,8 +4,8 @@ jdk:
 
 sudo: required
 
-before_install:
-  - docker run --name redis-integration-test-db -p 6378:6379 -d redis
+#before_install:
+#  - docker run --name redis-integration-test-db -p 6378:6379 -d redis
 
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -17,25 +17,26 @@ jobs:
     script: ./gradlew lintKotlin
   - stage: test
     script: ./gradlew test
-  - stage: build
-    script: ./gradlew build
+    before_script:
+      - docker run --name redis-integration-test-db -p 6378:6379 -d redis
+  - stage: deploy
+    script: skip
+    before_deploy:
+      - ./gradlew build
+    deploy:
+      provider: elasticbeanstalk
+      region: "eu-west-2"
+      app: "docker-app"
+      env: "DockerApp-env"
+      bucket_name: "elasticbeanstalk-eu-west-2-160364560450"
+      bucket_path: "docker-app"
+      on:
+        branch: master
+      access_key_id: "$AWS_ACCESS_KEY"
+      secret_access_key:
+        secure: "$AWS_SECRET_KEY"
 
 cache:
   directories:
   - $HOME/.gradle/caches/
   - $HOME/.gradle/wrapper/
-
-deploy:
-  provider: elasticbeanstalk
-  script: ./gradlew build
-  region: "eu-west-2"
-  app: "docker-app"
-  env: "DockerApp-env"
-  bucket_name: "elasticbeanstalk-eu-west-2-160364560450"
-  bucket_path: "docker-app"
-  on:
-    branch: master
-
-  access_key_id: "$AWS_ACCESS_KEY"
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
