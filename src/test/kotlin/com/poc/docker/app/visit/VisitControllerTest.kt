@@ -33,7 +33,7 @@ class VisitControllerTest {
     @Test
     fun visitCounterShouldReturnNumberOfVisits() {
         mockMvc.perform(get("/api/visits/counter"))
-                .andExpect(status().is2xxSuccessful)
+                      .andExpect(status().is2xxSuccessful)
                 .andExpect(content().string(containsString("Number of visits")))
     }
 }
