@@ -11,12 +11,6 @@ before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
-jobs:
-  include:
-  - stage: deploy
-    script: ./gradlew clean build
-    if: branch = master
-
 cache:
   directories:
   - $HOME/.gradle/caches/
@@ -24,6 +18,7 @@ cache:
 
 deploy:
   provider: elasticbeanstalk
+  script: ./gradlew build
   region: "eu-west-2"
   app: "docker-app"
   env: "DockerApp-env"
