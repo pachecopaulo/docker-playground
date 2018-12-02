@@ -18,6 +18,7 @@ cache:
 
 deploy:
   provider: elasticbeanstalk
+  script: ./gradlew build
   region: "eu-west-2"
   app: "docker-app"
   env: "DockerApp-env"
