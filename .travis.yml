@@ -14,9 +14,9 @@ before_cache:
 jobs:
   include:
   - stage: build
-    #if: branch = master
+    if: branch = master
     script: ./gradlew build
-  - stage: image
+  - stage: buildImage
     script: docker build .
 
 cache:
