@@ -33,10 +33,10 @@ The docker-compose has been defined to configure the multi docker images availab
 
 **2)** ```docker-compose up --build``` - The docker-compose will be responsible to create 3 containers to be able to run this application
    
-   2.1 - Redis database to be able to store the number of visits
+  * Redis database to be able to store the number of visits
    
-   2.2 - The NGINX for reverse proxy
+  * The NGINX for reverse proxy
    
-   2.3 - The application itself
+  * The application itself
 
 **3)** Once the app is up and running the application can be acessible via: http://localhost/count where the NGINX will forward the incoming requests to the service name under the Rest endpoint to store the number visits.
