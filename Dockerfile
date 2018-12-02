@@ -1,4 +1,4 @@
-FROM openjdk:10-jre as builder
+FROM openjdk:10-jre
 WORKDIR /usr/app
 ARG JAR_FILE=build/libs/docker-app.jar
 COPY ${JAR_FILE} application.jar
