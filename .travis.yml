@@ -15,3 +15,17 @@ cache:
   directories:
   - $HOME/.gradle/caches/
   - $HOME/.gradle/wrapper/
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-2"
+  app: "docker-app"
+  environment: "DockerApp-env"
+  bucket_name: "elasticbeanstalk-eu-west-2-160364560450"
+  bucket_path: "docker-app"
+  on:
+    branch: master
+
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
