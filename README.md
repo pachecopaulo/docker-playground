@@ -10,6 +10,7 @@ This is a PoC project intended to work with Docker and Kubernets.
    * Docker
    * Gradle
    * Travis CI
+   * AWS
 
 ### Gradle Tasks
 
