@@ -27,7 +27,7 @@ As part of the project configuration some Gradle tasks have been created
 
 ## Docker Compose
 
-The docker-compose has been defined to configure the multi docker images available in this project which are the **Redis** database, **NGINX** and the application itself making possible the communication between containers.
+The docker-compose has been defined to configure the multi docker images available in this project.
 
 ## Running the application in the docker
 
